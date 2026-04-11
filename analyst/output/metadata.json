@@ -1,0 +1,85 @@
+{
+  "generation_date": "2026-04-11 11:03:53",
+  "config": {
+    "dataset_name": "CLV_Synthetic_Data",
+    "seed": 42,
+    "output_format": "csv",
+    "customers": {
+      "min": 100,
+      "max": 500,
+      "segments": {
+        "premium": {
+          "share": 0.15,
+          "avg_check": 5000,
+          "check_std": 2000,
+          "frequency_weeks": 0.5,
+          "churn_rate": 0.05,
+          "lifetime_months": 24
+        },
+        "regular": {
+          "share": 0.55,
+          "avg_check": 1500,
+          "check_std": 600,
+          "frequency_weeks": 1.5,
+          "churn_rate": 0.15,
+          "lifetime_months": 12
+        },
+        "occasional": {
+          "share": 0.3,
+          "avg_check": 500,
+          "check_std": 300,
+          "frequency_weeks": 4,
+          "churn_rate": 0.35,
+          "lifetime_months": 6
+        }
+      }
+    },
+    "transactions": {
+      "date_range": {
+        "start": "2022-01-01",
+        "end": "2024-12-31"
+      },
+      "seasonality": {
+        "december_multiplier": 2.5,
+        "black_friday_multiplier": 3.0,
+        "summer_slowdown": 0.7
+      },
+      "promotions": {
+        "enabled": true,
+        "discount_probability": 0.3,
+        "avg_discount": 0.15
+      },
+      "noise": {
+        "enabled": true,
+        "amount_noise": 0.1,
+        "skip_probability": 0.05
+      }
+    },
+    "clv_formula": "simple",
+    "export_metadata": true
+  },
+  "statistics": {
+    "total_customers": 427,
+    "total_transactions": 12511,
+    "total_revenue": 41496302.51,
+    "avg_transaction": 3316.7854296219325,
+    "clv_stats": {
+      "mean": 144551.43419203747,
+      "median": 58853.84,
+      "std": 238316.63445005537,
+      "min": 2898.0,
+      "max": 1669964.4
+    },
+    "segment_distribution": {
+      "regular": 237,
+      "occasional": 126,
+      "premium": 64
+    },
+    "clv_category_distribution": {
+      "Low": 171,
+      "Medium": 128,
+      "High": 85,
+      "VIP": 43
+    }
+  }
+}

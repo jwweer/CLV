@@ -125,7 +125,7 @@ class CLVDataGenerator:
         # Генерируем покупки до оттока
         current_date = start_date
         transaction_num = 0
-        max_transactions = 100  # защита от бесконечного цикла
+        max_transactions = 100  # защита от бесконечного цикла   Надо будет поиграться с числами, попробовать 200 и тп
         
         while current_date <= churn_date and transaction_num < max_transactions:
             # Вероятность пропуска покупки (шумы)
@@ -144,7 +144,7 @@ class CLVDataGenerator:
             amount = self._apply_seasonality(current_date, amount)
             
             # Применяем скидки
-            amount, has_discount, discount = self._apply_promotion(amount)
+            amount, has_discount, discount = self._apply_promotion(amount) # НЕТ ПРОВЕРКИ НА ОТРИЦАТЕЛЬНЫЕ СУММЫ!
             
             # Добавляем шум
             noise = self.config['transactions']['noise']['amount_noise']
@@ -216,7 +216,7 @@ class CLVDataGenerator:
         
         # Расчет CLV по простой формуле
         # CLV = Средний чек × Частота покупок × Время жизни (в месяцах)
-        clv_stats['clv_simple'] = clv_stats['total_revenue'].round(2)
+        clv_stats['clv_simple'] = (clv_stats['avg_check'] * (clv_stats['frequency'] / clv_stats['lifetime_months'].clip(lower=0.1)) * 12).round(2) # ПРОВЕРИТЬ ЕЩЕ РАЗ ФОРМУЛУ, но вроде я исправила
         
         # Альтернативная формула (с учетом тренда)
         monthly_spend = clv_stats['total_revenue'] / clv_stats['lifetime_months'].clip(lower=0.1)
