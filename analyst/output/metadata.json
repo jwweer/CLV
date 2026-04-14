@@ -1,5 +1,5 @@
 {
-  "generation_date": "2026-04-11 11:03:53",
+  "generation_date": "2026-04-14 09:44:11",
   "config": {
     "dataset_name": "CLV_Synthetic_Data",
     "seed": 42,
@@ -60,15 +60,15 @@
   },
   "statistics": {
     "total_customers": 427,
-    "total_transactions": 12511,
-    "total_revenue": 41496302.51,
-    "avg_transaction": 3316.7854296219325,
+    "total_transactions": 15591,
+    "total_revenue": 58455421.25,
+    "avg_transaction": 3749.305448656276,
     "clv_stats": {
-      "mean": 144551.43419203747,
-      "median": 58853.84,
-      "std": 238316.63445005537,
-      "min": 2898.0,
-      "max": 1669964.4
+      "mean": 148057.34459016394,
+      "median": 59539.76,
+      "std": 248681.5958803615,
+      "min": 3004.46,
+      "max": 2064326.16
     },
     "segment_distribution": {
       "regular": 237,
