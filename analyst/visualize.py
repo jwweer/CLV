@@ -11,6 +11,7 @@ if 'DISPLAY' not in os.environ:
 # Настройка русских шрифтов для Windows
 #plt.rcParams['font.family'] = 'Segoe UI'
 #plt.rcParams['axes.unicode_minus'] = False
+
 # сделала для стандартных! потом могу исправить
 
 plt.rcParams['font.family'] = 'sans-serif'
