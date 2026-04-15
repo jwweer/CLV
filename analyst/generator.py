@@ -59,6 +59,7 @@ class CLVDataGenerator:
             )
             
             # Lifetime клиента
+            # Спросить по поводу точной жизни клиента
             lifetime_days = seg_cfg['lifetime_months'] * 30
             churn_date = first_purchase + timedelta(
                 days=random.randint(int(lifetime_days * 0.7), lifetime_days)
