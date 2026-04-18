@@ -16,7 +16,7 @@ class CLVCalculator:
         df = df[df['amount'] > 0]
         
         if df['client_id'].dtype == 'object':
-            df['client_id'] = df['client_id'].str.extract('(\d+)').fillna(0)
+            df['client_id'] = df['client_id'].str.extract(r'(\d+)').fillna(0)
         
         df['client_id'] = pd.to_numeric(df['client_id'], errors='coerce')
         df = df.dropna(subset=['client_id'])
